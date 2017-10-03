@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SWAPI VueJS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./style.css" type="text/css" media="all" />
+
+    </script>
+  </head>
+  <body>
+      <div class="container" id="app">
+        <center>
+          <div class="panel panel-default">
+
+            <div class="panel-heading"><h1 class="text-cender"><center>En una galaxia muy muy lejana</center></h1></div>
+            <div class="panel-body">
+              <center>
+                <div class="form-inline">
+                  <label>Filtros </label>
+                  <input v-model.trim="name" placeholder="name">
+                </div>
+            </center>
+            </div>
+
+        </center>
+
+
+
+
+      <div class="columns medium" v-for="result in filterResults">
+        <div class="card">
+          <div class="card-divider">
+            {{ result.name }}
+          </div>
+          <div class="card-section">
+            <label> Sexo:   {{ result.gender }}</label>
+            <p>Planel: {{result.homeworld.name}}</p>
+          <!-- {{ result.homeworld }} -->
+
+          <p>Films:
+          <ul>
+            <li v-for="film in result.films">
+              {{film}}
+            </li>
+          </ul>
+          </p>
+          <p>
+          Species:
+          <ul>
+            <li v-for="specie in result.species">{{specie.name}}</li>
+          </ul>
+          </p>
+          <!-- {{ result.films }} -->
+          <!-- {{ result.species }} -->
+        </div>
+        </div>
+      </div>
+      <div>
+        <pre>{{results}}</pre>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
